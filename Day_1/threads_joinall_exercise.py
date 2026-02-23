@@ -2,9 +2,25 @@ from time import sleep
 from threading import Thread, current_thread
 from random import randint
 
-def joinall(threads, interval=None):
-    pass # TODO: Implement the logic to wait for all threads to complete
-         # It must allow reaping threads based on the order of exit.        
+def joinall_old(threads, interval=None):
+    while threads:
+        for t in threads:
+            t.join(timeout=interval)
+            if not t.is_alive():
+                threads.remove(t)
+                yield t
+        
+def joinall(threads, interval=0.5):
+    from collections import deque
+    threads = deque(threads)
+    while threads:
+        t = threads[0]
+        t.join(timeout=interval)
+        if not t.is_alive():
+            yield threads.popleft()
+        else:
+            threads.rotate(-1)
+        
 
 def fn(count):
     th = current_thread()
