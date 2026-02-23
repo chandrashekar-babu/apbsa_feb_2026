@@ -1,7 +1,8 @@
 from gevent import monkey
 monkey.patch_all()
 
-from threading import Thread
+from multiprocessing import Process as Thread
+#from threading import Thread
 from time import sleep
 
 def foo(n):
@@ -17,8 +18,8 @@ def bar(n):
         sleep(0.5)
 
 if __name__ == "__main__":
-    t1 = Thread(target=foo, args=(10,))
-    t2 = Thread(target=bar, args=(10,))
+    t1 = Thread(target=foo, args=(100,))
+    t2 = Thread(target=bar, args=(100,))
     
     t1.start()
     t2.start()
