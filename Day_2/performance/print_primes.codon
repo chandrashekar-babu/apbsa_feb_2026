@@ -1,0 +1,31 @@
+"""
+A simple python program to test CPU performance by
+generating a series of prime numbers
+"""
+
+from python import time
+from sys import stderr
+
+NUM_SERIES = 1_000_000
+NUM_THREADS = 4
+
+def is_prime(number):
+    "Returns True if 'number' is prime"
+    limit = int(number ** 0.5) + 1
+    for i in range(2, limit):
+        if number % i == 0:
+            return False
+    return True
+
+def print_primes(tid, start, stop):
+    @par(schedule='dynamic', chunk_size=(NUM_SERIES // NUM_THREADS), num_threads=NUM_THREADS)
+    for i in range(start, stop):
+        if is_prime(i):
+            print(f"{tid}: {i}")
+
+if __name__ == '__main__':
+
+    start_time = time.time()
+    print_primes(1, 0, NUM_SERIES)
+    duration = float(time.time() - start_time)
+    print(NUM_THREADS, "Threads took", duration, "seconds", file=stderr)

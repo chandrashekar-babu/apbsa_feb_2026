@@ -14,9 +14,11 @@ def testfn():
         print(f"testfn: counting {i}")
         sleep(1)
 
+if __name__ == "__main__":
 
-p1 = Process(target=testfn)
-p1.start()
+    p1 = Process(target=testfn)
+    p1.start()
 
-sleep(5)
-p1.terminate()
+    sleep(5)
+    p1.terminate()
+    

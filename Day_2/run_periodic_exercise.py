@@ -5,7 +5,7 @@ Implement the class - RunPeriodic that allows a function
 to be executed at periodic intervals in a separate thread.
 """
 
-from run_periodic import RunPeriodic
+from run_periodic_solution import RunPeriodic
 
 if __name__ == '__main__':
 
@@ -15,16 +15,16 @@ if __name__ == '__main__':
     def hello_world():
         print("Hello world....")
 
-    print_thread = RunPeriodic(5, print_test)
+    print_thread = RunPeriodic(20, print_test)
     print_thread.start()
-    # Execute print_test() function every 5 seconds
+    # Execute print_test() function every 20 seconds
 
     hello_thread = RunPeriodic(2, hello_world)
     hello_thread.start()
     # Execute hello_thread() function every 2 seconds
 
     from time import sleep
-    for i in range(20):
+    for i in range(5):
         print("main thread: counting", i)
         sleep(1)
 
