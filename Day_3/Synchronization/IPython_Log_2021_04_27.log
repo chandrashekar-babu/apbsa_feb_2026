@@ -1,0 +1,265 @@
+
+from threading import Condition
+c = Condition()
+c
+get_ipython().run_line_magic('pinfo', 'c.wait')
+with c: c.wait(timeout=5)
+c
+def testfn():
+    from threading import current_thread
+    tname = current_thread().name
+    print(f"{tname} waiting for condition...")
+    with c: c.wait()
+    print(f"{tname} woke up due to a condition...")
+    
+from threading import Thread
+threads = []
+for i in range(10):
+    t = Thread(target=testfn())
+    t.start()
+    threads.append(t)
+    
+for i in range(10):
+    t = Thread(target=testfn)
+    t.start()
+    threads.append(t)
+    
+def testfn():
+    from threading import current_thread
+    tname = current_thread().name
+    print(f"{tname} waiting for condition...")
+    with c: c.wait()
+    print(f"{tname} woke up due to a condition...")
+    
+with c: c.notify()
+with c: c.notify()
+with c: c.notify()
+from threading import Semaphore
+sem = Semaphore(5)
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem = Semaphore(5)
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.acquire()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem.release()
+sem = Semaphore(5) # Counting semaphore
+sem = Semaphore(1) # Binary semaphore
+sem = Semaphore(0) # Null semaphore
+sem.acquire()
+Condition
+c = Condition()
+from threading import BoundedSemaphore
+b = BoundedSemaphore(5)
+b.acquire()
+b.acquire()
+b.acquire()
+b.acquire()
+b.acquire()
+b.acquire()
+b.release()
+b.release()
+b.release()
+b.release()
+b.release()
+b.release()
+b = BoundedSemaphore(0)
+b.acquire()
+b.release()
+b.release()
+from queue import Queue
+q = Queue(5)
+q.put(10)
+q.put(20)
+q.put(30)
+q.put(40)
+q.put(50)
+q.put(60)
+q.get()
+q.get()
+q.get()
+q.get()
+q.get()
+q.get()
+q.qsize
+q.qsize()
+q.put(10)
+q.put(10)
+q.put(10)
+q.qsize()
+q.maxsize
+q.qsize()
+q.put(10, block=False)
+q.put(10, block=False)
+q.put(10, block=False)
+q.put(10)
+q.put(10, block=False)
+q.put(10, timeout=5)
+q.get(block=False)
+q.get(timeout=5)
+q.get(timeout=5)
+q.get(timeout=5)
+q.get(timeout=5)
+q.get(timeout=5)
+q.join()
+q.get()
+q.task_done()
+from queue import Queue
+from queue import LifoQueue
+q = LifoQueue(5)
+q.put(10)
+q.put(20)
+q.put(30)
+q.put(40)
+q.put(50)
+q.put(60)
+q.get()
+q.get()
+q.get()
+q.get()
+q.get()
+from queue import PriorityQueue
+pq = PriorityQueue(5)
+pq.put(10)
+pq.put(67)
+pq.put(14)
+pq.put(7)
+pq.put(18)
+pq.get()
+pq.get()
+pq.get()
+pq.get()
+pq.get()
+pq.put(-10)
+pq.put(-67)
+pq.put(-14)
+pq.put(-7)
+pq.put(-18)
+-pq.get()
+-pq.get()
+-pq.get()
+-pq.get()
+-pq.get()
+pq.put((4, "hello"))
+pq.put((8, "test"))
+pq.put((2, "world"))
+pq.put((10, "temp"))
+pq.get()
+pq.get()
+pq.get()
+pq.get()
+pq.get()
+get_ipython().run_line_magic('pinfo', 'PriorityQueue')
+import multiprocessing as mp
+mp.Process
+get_ipython().run_line_magic('pinfo', 'mp.Process')
+mp.Lock
+mp.RLock
+mp.Condition
+mp.Barrier
+mp.Event
+mp.Semaphore
+mp.BoundedSemaphore
+mp.Queue(5)
+q = mp.Queue(5)
+mp.PriorityQueue
+mp.LifoQueue
+mp.active_children
+mp.active_children()
+mp.current_process()
+mp.cpu_count()
+mp.Value
+mp.Value("i", 2384623874632864782367832467823478264782634872364782364783264786324)
+mp.Value("i", 23)
+a = [10, 20, 30, 40, 50]
+type(a)
+from array import array
+arr = array("i", [55, 66, 22, 33, 67, 88, 99])
+arr
+arr[0]
+arr[:3]
+arr[-1]
+len(arr)
+arr.append(100)
+arr
+arr.pop(0)
+arr
+arr.insert(2, 567)
+arr
+arr.append(5.6)
+arr
+a = "hello world"
+a
+from socket import socket, AF_INET, SOCK_STREAM
+get_ipython().set_next_input('sock = socket');get_ipython().run_line_magic('pinfo', 'socket')
+sock = socket(AF_INET, SOCK_STREAM)
+sock
+get_ipython().run_line_magic('pinfo', 'sock.bind')
+sock.bind("localhost", 7892)
+sock.bind(("localhost", 7892))
+sock
+sock.listen(1000)
+conn = sock.accept()
+conn
+conn[0]
+conn[1]
+(conn, (addr, port)) = conn
+conn
+addr
+port
+ins = conn.makefile("r")
+outs = conn.makefile("w")
+ins
+outs
+ins.readline()
+outs.write("this is reply from the server\n")
+outs.flush()
+outs.write("this is reply from the server\n")
+outs.flush()
+ins.close()
+outs.close()
+conn.close()
+sock
+(conn, (addr, port)) = sock.accept()
+ins = conn.makefile("r")
+ins.readline()
+ins.readline()
+ins.readline()
+ins.readline()

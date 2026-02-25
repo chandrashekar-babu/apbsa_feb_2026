@@ -1,0 +1,35 @@
+
+from socket import socket, AF_INET, SOCK_STREAM
+socket = socket(AF_INET, SOCK_STREAM)
+socket
+socket.bind(("0.0.0.0", 6789))
+socket.listen(2)
+client_info = socket.accept()
+
+from socket import socket, AF_INET, SOCK_STREAM
+socket = socket(AF_INET, SOCK_STREAM)
+socket.connect(("127.0.0.1", 6789))
+client_info
+client_sock, (client_addr, client_port) = client_info
+client_sock
+client_addr
+client_port
+get_ipython().run_line_magic('pinfo', 'client_sock.send')
+client_sock.sendall(b"Hello world from server..\n")
+get_ipython().run_line_magic('pinfo', 'socket.recv')
+socket.recv(100)
+socket.recv(100)
+client_sock.sendall(b"Hello world from server..\n")
+out = client_sock.makefile("w")
+instream = socket.makefile("r")
+out
+instream
+print("Hello from python...", file=out)
+instream.read()
+out.flush()
+instream.readline()
+out.close()
+instream.readline()
+import socket
+help(socket)
+get_ipython().run_line_magic('pinfo', 'signal')
