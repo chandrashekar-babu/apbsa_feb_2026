@@ -4,10 +4,10 @@ from time import sleep
 
 data = threading.local()
 
-class MyData: pass
+#class MyData: pass
 
 #data = MyData()
-#data.i = 10
+data.i = 10
 
 
 def testfn1():
@@ -28,7 +28,7 @@ if __name__ == '__main__':
     t1 = Thread(target=testfn1)
     t2 = Thread(target=testfn2)
 
-    data.i = 1000
+    #data.i = 1000
     t1.start()
     t2.start()
     t1.join()

@@ -51,7 +51,7 @@ def producer():
         v = randint(1, 100)
         print("Produced: ", v, "Queue =", queue.show())
         queue.put(v)
-        sleep(random() / 10)
+        sleep(random())
 
 
 def consumer():

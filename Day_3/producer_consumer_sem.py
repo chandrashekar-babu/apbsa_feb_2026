@@ -20,18 +20,17 @@ class SimpleQueue:
     def put(self, v):
 
         self.writer.acquire()
-
-        with self.lock: self.queue.append(v)
-
-        self.reader.release()
+        try:
+            with self.lock: self.queue.append(v)
+        finally:
+            self.reader.release()
 
     def get(self):
         self.reader.acquire()
-
-        with self.lock: v = self.queue.popleft()
-
-        self.writer.release()
-
+        try:
+            with self.lock: v = self.queue.popleft()
+        finally:
+            self.writer.release()
         return v
 
 

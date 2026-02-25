@@ -1,11 +1,11 @@
 from socket import socket, AF_INET, SOCK_STREAM, SOMAXCONN
 
 from random import randint
-from threading import Thread, current_thread, Barrier
+from threading import Thread, current_thread, Event
 from time import sleep
 from random import randint
 
-server_barrier = Barrier(2)
+server_ready = Event()
 PORT = randint(6000, 8000)
 
 def server():
@@ -15,7 +15,7 @@ def server():
         listener.bind(("127.0.0.1", PORT))
         listener.listen(SOMAXCONN)
 
-        server_barrier.wait()
+        server_ready.set()
         client_conn = listener.accept()
         print("Got connection from ", client_conn)
         out = client_conn[0].makefile("w")
@@ -28,8 +28,7 @@ def server():
 def client():
     try:
         conn = socket(AF_INET, SOCK_STREAM)
-        sleep(2)
-        server_barrier.wait()
+        server_ready.wait()
         
         conn.connect(("127.0.0.1", PORT))
 

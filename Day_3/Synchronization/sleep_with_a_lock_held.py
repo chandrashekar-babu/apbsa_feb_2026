@@ -1,8 +1,8 @@
-from __future__ import print_function
 from threading import Thread, Lock, current_thread
 import itertools
 from time import sleep
-from sys import getswitchinterval
+import sys
+import os
 
 sleep_lock = Lock() # Non-reentrant lock
 
@@ -13,8 +13,9 @@ def sleeping_function():
             print(f"In {t.name}: sleeping with count = {i}")
             sleep(1)
             print(f"In {t.name}: woke up with count = {i}")
-        sleep(getswitchinterval())
-
+        #sleep(sys.getswitchinterval())
+        os.sched_yield()
+        
 if __name__ == '__main__':
 
     t1 = Thread(target=sleeping_function)

@@ -5,9 +5,11 @@ from random import random
 SIZE = 100
 
 nums = list(range(SIZE))
+nums_lock = Lock()
 
 def pick_elements(dataset, howmany, result):
     for _ in range(howmany):
+        with nums_lock:
             value = dataset[0]
             result.append(value)
             sleep(random() / 10)
