@@ -1,0 +1,22 @@
+
+import msgpack
+get_ipython().run_line_magic('pwd', '')
+get_ipython().run_line_magic('ls', '')
+get_ipython().run_line_magic('cat', 'data.json')
+import json
+d = json.loads('{"name": "john", "city": "delhi", "age": 30, "active": true, "travelled": null, "owns": {"car": "ferrari", "bike": "yamaha"}, "visited": ["mumbai", ["kolkatta", "bengaluru"]]}')
+d
+msgpack.dumps(d)
+r = msgpack.dumps(d)
+len(r)
+r1 = json.dumps(d)
+len(r1)
+import dill
+def square(x):
+    print("Calculating square of", x)
+    y = x*x
+    for i in range(5):
+        print("Computing...")
+    return y
+    
+dill.dumps(square)

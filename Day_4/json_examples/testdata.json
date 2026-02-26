@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "title": "dsfsdfsdfsdF",
+      "id": 2
+    },
+    {
+      "title": "Hello world",
+      "author": "Jane",
+      "id": 3
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,9 @@
+active: true
+age: 30
+city: delhi
+name: john
+owns: {bike: yamaha, car: ferrari}
+travelled: null
+visited:
+- mumbai
+- [kolkatta, bengaluru]

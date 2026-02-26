@@ -1,0 +1,1 @@
+{"name": "john", "city": "delhi", "age": 30, "active": true, "travelled": null, "owns": {"car": "ferrari", "bike": "yamaha"}, "visited": ["mumbai", ["kolkatta", "bengaluru"]]}

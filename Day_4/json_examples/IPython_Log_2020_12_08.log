@@ -1,0 +1,7 @@
+
+get_ipython().run_line_magic('pwd', '')
+get_ipython().run_line_magic('cd', '..')
+get_ipython().run_line_magic('cd', '..')
+from redis import Redis
+conn = Redis(host="192.168.1.130")
+conn["aaa"] = 1000
