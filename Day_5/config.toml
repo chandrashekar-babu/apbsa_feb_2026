@@ -1,0 +1,3 @@
+name = "John"
+visited = [ "Chennai", "Bengaluru", "Noida",]
+active = false
