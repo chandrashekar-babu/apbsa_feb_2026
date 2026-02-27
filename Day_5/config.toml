@@ -1,3 +1,9 @@
+[user]
 name = "John"
 visited = [ "Chennai", "Bengaluru", "Noida",]
 active = false
+
+[info]
+roles = "user"
+place = "Delhi"
+

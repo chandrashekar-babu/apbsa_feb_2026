@@ -1,0 +1,11 @@
+database:
+  host: localhost
+  password: secret
+  port: 5432
+  username: admin
+logging:
+  file: app.log
+  level: INFO
+session:
+  secure: true
+  timeout: 30
