@@ -1,0 +1,11 @@
+connection_params:
+  database: newdb
+  host: localhost
+  password: w3lc0me
+  user: testuser
+create_staff: "\n            CREATE TABLE IF NOT EXISTS staff\n            (\n   \
+  \             id   SERIAL,\n                name VARCHAR(32),\n                role\
+  \ VARCHAR(32),\n                dept VARCHAR(32)\n            )\n    "
+insert_staff: "\n            INSERT INTO staff (name, role, dept) \n            VALUES(%s,\
+  \ %s, %s)\n    "
+select_all_staff: SELECT * FROM staff

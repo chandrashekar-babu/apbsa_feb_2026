@@ -19,7 +19,7 @@ def main():
     print("Memory test started...")
     efficient_function()
     data = leak_memory()
-    print("Done. Check the memray report.")
+    print("Done. Check the memory profiler report.")
 
 if __name__ == "__main__":
     main()

@@ -15,7 +15,7 @@ def fast_function():
 
 def main():
     print(f"CPU-hog started. Pid = {os.getpid()}")
-    while True:
+    for i in range(10):
         expensive_calculation()
         fast_function()
 

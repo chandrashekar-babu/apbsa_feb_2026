@@ -1,0 +1,15 @@
+Write a module to manage user accounts
+
+Synopis
+------
+  from users import Users
+
+  u = Users("userdb")
+  
+  u.add("john", "john123") # Add user
+  
+  u.remove("john")  # Delete user john
+
+  u.authenticate("john", "john123") # True if username and password are correct
+
+
