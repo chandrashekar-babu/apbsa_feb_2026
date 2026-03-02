@@ -1,7 +1,15 @@
 import logging
-logging.basicConfig(filename="rotating_log_test.log", level=logging.DEBUG)
+import logging.handlers
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+logger.addHandler(
+    logging.handlers.RotatingFileHandler(
+        "rotating_app.log", maxBytes=1024*1024, backupCount=3
+    )
+)
+
 
 def testfn():
     for i in range(100_000):
