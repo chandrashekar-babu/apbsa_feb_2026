@@ -1,0 +1,45 @@
+
+import requests
+requests.get("http://127.0.0.1:8000/")
+requests.get("http://127.0.0.1:8000/", params=dict(name="John", score=45))
+requests.get("http://127.0.0.1:8000/", params=dict(name=100, score=45))
+requests.get("http://127.0.0.1:8000/", params=dict(name="John", score=45))
+r = requests.get("http://127.0.0.1:8000/", params=dict(name="John", score=45))
+r.ok
+r.status_code
+r.headers
+r.json()
+r = requests.post("http://127.0.0.1:8000/", params=dict(name="John", score=45), data=dict(name="smith", score=4.5))
+r
+r = requests.post("http://127.0.0.1:8000/", params=dict(name="John", score=45), data=dict(name="smith", score=4.5))
+r
+r.json()
+requests.get("http://127.0.0.1:8000/")
+requests.get("http://127.0.0.1:8000/users")
+requests.get("http://127.0.0.1:8000/users").json()
+requests.post("http://127.0.0.1:8000/users",
+              json=dict(name="raymond", password="welcome",
+                        fullname="Raymond Hettinger"))
+requests.get("http://127.0.0.1:8000/users").json()
+requests.post("http://127.0.0.1:8000/users",
+              json=dict(username="raymond", password="welcome",
+                        fullname="Raymond Hettinger"))
+requests.delete("http://127.0.0.1:8000/users/guido")
+requests.get("http://127.0.0.1:8000/users").json()
+requests.get("http://127.0.0.1:8000/todos")
+requests.get("http://127.0.0.1:8000/todos").json()
+requests.post("http://127.0.0.1:8000/todos", json={"name": "sdfsdfdsf"})
+requests.post("http://127.0.0.1:8000/todos", json={"name": "sdfsdfdsf"})
+requests.get("http://127.0.0.1:8000/todos").json()
+requests.delete("http://127.0.0.1:8000/todos/sdfsdfdsf")
+requests.get("http://127.0.0.1:8000/todos").json()
+requests.post("http://127.0.0.1:8000/todos", json={"name": "sdfsdfdsf"})
+requests.patch("http://127.0.0.1:8000/todos", json={"title": "sdfsdfdsf sdflkdsklfjsdf"})
+requests.patch("http://127.0.0.1:8000/todos/sdfsdfdsf", json={"title": "sdfsdfdsf sdflkdsklfjsdf"})
+requests.patch("http://127.0.0.1:8000/todos/sdfsdfdsf", json={"title": "sdfsdfdsf sdflkdsklfjsdf"})
+requests.get("http://127.0.0.1:8000/todos").json()
+requests.get("http://127.0.0.1:5000/")
+requests.post("http://127.0.0.1:5000/")
+requests.post("http://127.0.0.1:5000/", data="sdfsdf")
+requests.post("http://127.0.0.1:5000/", data="sdfsdf")
+requests.put("http://127.0.0.1:5000/", data="sdfsdf")

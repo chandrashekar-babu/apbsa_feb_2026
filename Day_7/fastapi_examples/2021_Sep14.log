@@ -1,0 +1,54 @@
+from userdb import *
+from userdb import *
+import mariadb
+users = UserDB(mariadb, MariaDBConfig)
+users.connect()
+users.create_schema()
+u = User(name="John", password="john123", fullname="John doe")
+users.add(u)
+users.add(User(name="jones", password"welcome", fullname="Sam Jones"))
+users.add(User(name="jones", password="welcome", fullname="Sam Jones"))
+users.get(name="john")
+users.get(username="john")
+#[Out]# <generator object UserDB.get at 0x000001A9457FA5F0>
+for row in users.get(username="john"):
+    print(row)
+    
+from userdb import *
+import mariadb
+u = User(name="John", password="john123", fullname="John doe")
+users = UserDB(mariadb, MariaDBConfig)
+users.connect()
+for row in users.get():
+    print(row)
+    
+users.add(User(name="John", password="john123", fullname="John doe"))
+users.add(User(name="jones", password="welcome", fullname="Sam Jones"))
+users.cursor
+#[Out]# <mariadb.connection.cursor at 0x1d293a78220>
+row = users.cursor.execute(users.config.select_all)
+row
+from userdb import *
+from userdb import *
+import mariadb
+users = UserDB(mariadb, MariaDBConfig)
+users.connect()
+for row in users.get():
+    print(row)
+    
+for row in users.get("john"):
+    print(row)
+    
+for u in users.get("john"):
+    print(u.name, u.fullname)
+    
+users.update("john", UserOpt(name="john", password="welcome123"))
+list(users.get("john"))
+#[Out]# [User(name='John', password='welcome123', fullname='John doe')]
+users.update("john", UserOpt(name="john", fullname="wsdfsdsdfelcome123"))
+list(users.get("john"))
+#[Out]# [User(name='John', password='welcome123', fullname='wsdfsdsdfelcome123')]
+users.update("john", UserOpt(name="john", fullname="wsdfsdsdfelcome123", password="test"))
+users.delete("john")
+list(users.get())
+#[Out]# [User(name='jones', password='welcome', fullname='Sam Jones')]

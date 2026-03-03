@@ -1,0 +1,5 @@
+active: false
+hostname: localhost
+last_connections: !!python/tuple [10.10.10.10, 5.5.5.5]
+name: John doe
+port: 7000

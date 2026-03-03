@@ -1,0 +1,56 @@
+
+import requests
+import urllib
+import urllib.request
+urllib.request.urlopen("http://www.chandrashekar.info/")
+r = urllib.request.urlopen("http://www.chandrashekar.info/")
+r.code
+r.headers
+r.headers.keys()
+r.headers.items()
+import requests
+requests.get("http://www.chandrashekar.info/")
+requests.get("http://www.chandrashekar.info/sdfsd")
+r = requests.get("http://www.chandrashekar.info/")
+r.status_code
+r.ok
+r.headers
+r.cookies
+r = requests.get("http://www.qualcomm.com/")
+r.ok
+r.cookies
+r = requests.get("http://www.google.com/")
+r.cookies
+r.text
+r.content
+type(r.content)
+type(r.text)
+r.headers["Content-type"]
+requests.get("http://127.0.0.1:8000/todos")
+requests.get("http://127.0.0.1:8000/todos")
+r = requests.get("http://127.0.0.1:8000/todos")
+r.status_code
+r.headers["content-type"]
+r.json()
+get_ipython().run_line_magic('pinfo', 'requests.Request')
+r = requests.post("http://127.0.0.1:8000/todos", json={"task": "Hello world"})
+r.ok
+r.status_code
+r = requests.post("http://127.0.0.1:8000/todos", json={"task": "Hello world", "name": "sdlkfjlsdjfds"})
+r.ok
+r.status_code
+requests.get("http://127.0.0.1:8000/todos/sdlkfjlsdjfds")
+requests.get("http://127.0.0.1:8000/todos/sdlkfjlsdjfds").json()
+requests.patch("http://127.0.0.1:8000/todos/sdlkfjlsdjfds",
+        json={"name": "new_task"})
+        
+requests.put("http://127.0.0.1:8000/todos/sdlkfjlsdjfds",
+        json={"name": "new_task", "aaaa": "dfsfsdsdf"})
+        
+        
+requests.get("http://127.0.0.1:8000/todos").json()
+requests.delete("http://127.0.0.1:8000/todos/new_task")
+
+        
+        
+requests.get("http://127.0.0.1:8000/todos").json()

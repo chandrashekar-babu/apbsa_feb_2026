@@ -1,0 +1,37 @@
+
+from userdb import *
+users = UserDB(driver=sqlite3, config=SQLiteConfig)
+import sqlite3
+users = UserDB(driver=sqlite3, config=SQLiteConfig)
+u = User(name="smith", password="ad123", fullname="Adrian Smith")
+users.connect()
+users.add(u)
+user.conn.commit()
+users.conn.commit()
+users.delete("john")
+users.get()
+list(users.get())
+users.get("smith")
+list(users.get("smith"))
+list(users.get("smith"))
+requests.get("http://localhost:8000/users")
+
+import requests
+requests.get("http://localhost:8000/users")
+requests.get("http://localhost:8000/users").json()
+requests.get("http://localhost:8000/users").json()
+requests.get("http://localhost:8000/users")
+requests.post("http://localhost:8000/users", json={"name": "guido", 
+"fullname": "Guido Van Rossum", "password": "guido123"})
+requests.get("http://localhost:8000/users").json()
+requests.post("http://localhost:8000/users", json={"name": "guido", 
+"fullname": "Guido Van Rossum", "pasdf": "guido123"})
+requests.get("http://localhost:8000/users").json()
+requests.get("http://localhost:8000/users/smith").json()
+requests.get("http://localhost:8000/users/smith")
+requests.get("http://localhost:8000/users/smith")
+requests.get("http://localhost:8000/users/smith")
+requests.get("http://localhost:8000/users/smith")
+requests.get("http://localhost:8000/users/smith").json()
+requests.delete("http://localhost:8000/users/smith")
+requests.get("http://localhost:8000/users").json()

@@ -1,0 +1,23 @@
+HTTP methods and their CRUD mapping
+-----------------------------------
+
+1. Collection resource / Plural resource
+
+/servers
+ Valid methods on collection resource:
+    1. GET /servers  # Retrieve a collection of servers (SELECT / find())
+    2. POST /servers # Create a new resource (INSERT / insert_one())
+
+2. Singular resource
+
+/servers/node-1
+   1. GET /servers/node-1    # Retrieve a document/resource representing node-1 (find_one())
+   2. DELETE /servers/node-1 # Delete a document/resource representing node-1 (delete_one())
+   3. PUT  /server/node-1    # Replace a document  (update_one())
+   4. PATCH /server/node-1   # Update a document   (replace_one())
+
+
+servers/node-1/cpu
+
+employees/4455/department/
+employees/department/4455/

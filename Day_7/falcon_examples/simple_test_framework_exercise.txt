@@ -1,0 +1,21 @@
+import requests
+
+
+r = requests.get("http://127.0.0.1:8000/tests")
+if r.status_code == 200:
+    print(r.json())
+"""
+  {"on_going": ["square", "add"], "completed": ["multiply"]}
+   or
+  {"on_going": None, "completed": ["square", "add", "multiply"]}
+
+"""
+
+requests.delete("http://127.0.0.1:8000/tests/add")
+
+requests.post("http://127.0.0.1:8000/tests", json={"function": b"dfsfdsf", tests=[....]})
+
+requests.get("http://127.0.0.1:8000/tests/square")
+"""
+  [{"args": ["2"], "returned": "4", "status": "ok" }, {"args": ["4"], ....}]
+"""
